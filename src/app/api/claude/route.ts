@@ -144,7 +144,7 @@ async function optimizeImage(base64Data: string): Promise<string> {
     const buffer = Buffer.from(base64Data, 'base64');
     
     // Target dimensions optimized for text readability
-    const targetWidth = 600; // Good balance for text readability
+    const targetWidth = 1000; // Good balance for text readability
     
     // Process the image - convert to WebP for optimal compression
     let optimizedBuffer = await sharp(buffer)
@@ -154,7 +154,7 @@ async function optimizeImage(base64Data: string): Promise<string> {
         withoutEnlargement: true
       })
       .webp({ 
-        quality: 50,  // WebP can use higher quality settings while maintaining good compression
+        quality: 75,  // WebP can use higher quality settings while maintaining good compression
         lossless: false,
         nearLossless: true, // Better for text
         smartSubsample: true // Better color accuracy at smaller sizes
@@ -173,7 +173,7 @@ async function optimizeImage(base64Data: string): Promise<string> {
           withoutEnlargement: true
         })
         .jpeg({ 
-          quality: 50,
+          quality: 75,
           progressive: true,
           optimizeScans: true
         })

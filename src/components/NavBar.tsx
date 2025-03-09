@@ -2,7 +2,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { Camera, List, ShoppingCart, Settings } from 'lucide-react';
+import { Camera, List } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export default function NavBar({ currentPage = 'home' }) {
@@ -31,28 +31,6 @@ export default function NavBar({ currentPage = 'home' }) {
         >
           <List size={24} />
           <span className="text-xs mt-1">Lists</span>
-        </button>
-        
-        <button 
-          onClick={() => router.push('/cart')}
-          className={cn(
-            "p-2 rounded-full flex flex-col items-center",
-            currentPage === 'cart' ? "text-primary" : "text-muted-foreground"
-          )}
-        >
-          <ShoppingCart size={24} />
-          <span className="text-xs mt-1">Cart</span>
-        </button>
-        
-        <button 
-          onClick={() => router.push('/settings')}
-          className={cn(
-            "p-2 rounded-full flex flex-col items-center",
-            currentPage === 'settings' ? "text-primary" : "text-muted-foreground"
-          )}
-        >
-          <Settings size={24} />
-          <span className="text-xs mt-1">Settings</span>
         </button>
       </div>
     </nav>
