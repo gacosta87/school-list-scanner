@@ -91,33 +91,17 @@ export default function ResultsPage() {
         ? claudeData.gradeLists[0].supplyItems 
         : [];
       
-      // Generate search terms and search for products
-      const searchTerms = supplyItems.map(item => item.name);
-      
-      const productsResponse = await fetch('/api/products/search', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ searchTerms })
-      });
-      
-      if (!productsResponse.ok) {
-        throw new Error('Product search failed');
-      }
-      
-      const products = await productsResponse.json();
-      
-      // Process and format the products data
-      const items = products.map((product, index) => {
-        const originalItem = supplyItems[index] || { originalText: 'Unknown item', quantity: 1 };
+      // Format the items directly from the supply list without searching
+      const items = supplyItems.map((item) => {
         return {
-          id: product.id,
-          name: product.name,
-          brand: product.brand || '',
-          price: parseFloat(product.price),
-          image: product.image || '',
+          id: Math.random().toString(36).substring(2, 15), // Generate a random ID
+          name: item.name,
+          brand: '',
+          price: 0.00, // Default price
+          image: '', // No image
           inCart: false,
-          originalTerm: originalItem.originalText || 'Unknown item',
-          requestedQuantity: originalItem.quantity || 1
+          originalTerm: item.originalText || item.name,
+          requestedQuantity: item.quantity || 1
         };
       });
       
@@ -209,33 +193,17 @@ export default function ResultsPage() {
         localStorage.setItem('schoolInfo', JSON.stringify(schoolInfo));
       }
       
-      // Generate search terms and search for products
-      const searchTerms = supplyItems.map(item => item.name);
-      
-      const productsResponse = await fetch('/api/products/search', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ searchTerms })
-      });
-      
-      if (!productsResponse.ok) {
-        throw new Error('Product search failed');
-      }
-      
-      const products = await productsResponse.json();
-      
-      // Process and format the products data
-      const items = products.map((product, index) => {
-        const originalItem = supplyItems[index] || { originalText: 'Unknown item', quantity: 1 };
+      // Format the items directly from the supply list without searching
+      const items = supplyItems.map((item) => {
         return {
-          id: product.id,
-          name: product.name,
-          brand: product.brand || '',
-          price: parseFloat(product.price),
-          image: product.image || '',
+          id: Math.random().toString(36).substring(2, 15), // Generate a random ID
+          name: item.name,
+          brand: '',
+          price: 0.00, // Default price
+          image: '', // No image
           inCart: false,
-          originalTerm: originalItem.originalText || 'Unknown item',
-          requestedQuantity: originalItem.quantity || 1
+          originalTerm: item.originalText || item.name,
+          requestedQuantity: item.quantity || 1
         };
       });
       
@@ -340,33 +308,17 @@ export default function ResultsPage() {
       schoolInfo.grade = gradeLists[gradeIndex].grade;
       localStorage.setItem('schoolInfo', JSON.stringify(schoolInfo));
       
-      // Generate search terms and search for products
-      const searchTerms = supplyItems.map(item => item.name);
-      
-      const productsResponse = await fetch('/api/products/search', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ searchTerms })
-      });
-      
-      if (!productsResponse.ok) {
-        throw new Error('Product search failed');
-      }
-      
-      const products = await productsResponse.json();
-      
-      // Process and format the products data
-      const items = products.map((product, index) => {
-        const originalItem = supplyItems[index] || { originalText: 'Unknown item', quantity: 1 };
+      // Format the items directly from the supply list without searching
+      const items = supplyItems.map((item) => {
         return {
-          id: product.id,
-          name: product.name,
-          brand: product.brand || '',
-          price: parseFloat(product.price),
-          image: product.image || '',
+          id: Math.random().toString(36).substring(2, 15), // Generate a random ID
+          name: item.name,
+          brand: '',
+          price: 0.00, // Default price
+          image: '', // No image
           inCart: false,
-          originalTerm: originalItem.originalText || 'Unknown item',
-          requestedQuantity: originalItem.quantity || 1
+          originalTerm: item.originalText || item.name,
+          requestedQuantity: item.quantity || 1
         };
       });
       
@@ -440,12 +392,12 @@ export default function ResultsPage() {
                 <Card key={item.id} className="overflow-hidden">
                   <CardContent className="p-4 flex items-center">
                     <img 
-                      src={item.image || "/api/placeholder/80/80"} 
+                      src={item.image || "https://placehold.co/80x80/e6e6e6/a3a3a3?text=Item"} 
                       alt={item.name} 
                       className="w-16 h-16 object-cover rounded mr-4"
                       onError={(e) => {
                         e.target.onerror = null;
-                        e.target.src = "/api/placeholder/80/80";
+                        e.target.src = "https://placehold.co/80x80/e6e6e6/a3a3a3?text=Item";
                       }} 
                     />
                     
@@ -501,8 +453,8 @@ export default function ResultsPage() {
                   <span>{scannedItems.filter(i => i.inCart).length}</span>
                 </div>
                 <div className="flex justify-between mb-2">
-                  <span>Estimated Total:</span>
-                  <span>${scannedItems.filter(i => i.inCart).reduce((sum, item) => sum + item.price, 0).toFixed(2)}</span>
+                  <span>Note:</span>
+                  <span>Prices will be shown in the partner store</span>
                 </div>
               </div>
               
