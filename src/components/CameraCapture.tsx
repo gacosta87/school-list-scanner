@@ -171,7 +171,7 @@ const CameraCapture = ({
             <p className="mb-4">{error}</p>
             <Button 
               variant="outline" 
-              className="bg-white/10 text-white border-white/30 hover:bg-white/20"
+              className="bg-background/10 text-background border-background/30 hover:bg-background/20"
               onClick={startCamera}
             >
               <RefreshCw size={18} className="mr-2" />
@@ -191,7 +191,7 @@ const CameraCapture = ({
         {/* Loading indicator */}
         {!cameraReady && !error && (
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+            <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
           </div>
         )}
         
@@ -218,7 +218,7 @@ const CameraCapture = ({
         <div className="flex items-center justify-between">
           <button 
             onClick={onClose}
-            className="p-3 bg-white/10 rounded-full text-white hover:bg-white/20"
+            className="p-3 bg-background/10 rounded-full text-background hover:bg-background/20"
             aria-label="Close camera"
           >
             <X size={24} />
@@ -227,7 +227,7 @@ const CameraCapture = ({
           <button 
             onClick={captureImage}
             disabled={!cameraReady || takingPhoto}
-            className="p-5 bg-white rounded-full text-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="p-5 bg-background rounded-full text-primary disabled:opacity-50 disabled:cursor-not-allowed"
             aria-label="Take photo"
           >
             <Aperture size={28} />
@@ -236,7 +236,7 @@ const CameraCapture = ({
           {showGalleryOption ? (
             <button 
               onClick={openGallery}
-              className="p-3 bg-white/10 rounded-full text-white hover:bg-white/20"
+              className="p-3 bg-background/10 rounded-full text-background hover:bg-background/20"
               aria-label="Choose from gallery"
             >
               <Image size={24} />
@@ -244,7 +244,7 @@ const CameraCapture = ({
           ) : (
             <button 
               onClick={toggleCamera}
-              className="p-3 bg-white/10 rounded-full text-white hover:bg-white/20"
+              className="p-3 bg-background/10 rounded-full text-background hover:bg-background/20"
               aria-label="Switch camera"
             >
               <Camera size={24} />

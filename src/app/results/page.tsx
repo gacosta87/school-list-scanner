@@ -520,15 +520,15 @@ export default function ResultsPage() {
             </div>
             
             {errorMessage && (
-              <div className="bg-red-50 border border-red-200 rounded-lg p-3 flex items-center mb-4">
-                <AlertCircle size={20} className="text-red-600 mr-2 flex-shrink-0" />
-                <p className="text-sm text-red-800">{errorMessage}</p>
+              <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-3 flex items-center mb-4">
+                <AlertCircle size={20} className="text-destructive mr-2 flex-shrink-0" />
+                <p className="text-sm text-destructive">{errorMessage}</p>
               </div>
             )}
             
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 flex items-center mb-4">
-              <ShoppingCart size={20} className="text-blue-600 mr-2 flex-shrink-0" />
-              <p className="text-sm text-blue-800 flex-grow">
+            <div className="bg-primary/10 border border-primary/20 rounded-lg p-3 flex items-center mb-4">
+              <ShoppingCart size={20} className="text-primary mr-2 flex-shrink-0" />
+              <p className="text-sm text-primary flex-grow">
                 Save 50% on shipping when you checkout through our partner store!
               </p>
             </div>
@@ -564,7 +564,7 @@ export default function ResultsPage() {
                     <div className="flex-grow">
                       <h3 className="font-medium">{item.name}</h3>
                       <p className="text-sm text-gray-600">{item.brand}</p>
-                      <p className="text-blue-600 font-bold">${item.price.toFixed(2)}</p>
+                      <p className="text-primary font-bold">${item.price.toFixed(2)}</p>
                       <p className="text-xs text-gray-500">From list: "{item.originalTerm}"</p>
                       
                       {/* Quantity controls */}
@@ -588,7 +588,7 @@ export default function ResultsPage() {
                     
                     <button 
                       onClick={() => toggleCart(item.id)}
-                      className={`p-3 rounded-full ${item.inCart ? 'bg-green-100 text-green-600' : 'bg-gray-100 text-gray-600'}`}
+                      className={`p-3 rounded-full ${item.inCart ? 'bg-green-100 text-green-600' : 'bg-muted text-muted-foreground'}`}
                     >
                       {item.inCart ? <Check size={20} /> : <ShoppingCart size={20} />}
                     </button>
@@ -613,7 +613,7 @@ export default function ResultsPage() {
           <Button 
             onClick={handleCheckout}
             disabled={checkoutLoading || itemCount === 0}
-            className="bg-blue-600 hover:bg-blue-700 text-white"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground"
           >
             {checkoutLoading ? (
               <>

@@ -92,7 +92,7 @@ export default function UploadPage() {
           </CardHeader>
           <CardContent>
             <div 
-              className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer hover:bg-gray-50 transition"
+              className="border-2 border-dashed border-border rounded-lg p-8 text-center cursor-pointer hover:bg-accent/50 transition"
               onClick={triggerFileInput}
             >
               <input
@@ -104,21 +104,21 @@ export default function UploadPage() {
                 className="hidden"
               />
               
-              <Image size={48} className="mx-auto mb-4 text-gray-400" />
+              <Image size={48} className="mx-auto mb-4 text-muted-foreground" />
               
               <p className="text-gray-600 mb-2">Click to select images or drag and drop</p>
               <p className="text-sm text-gray-500">Supports JPG, PNG, HEIC</p>
             </div>
             
             {error && (
-              <div className="mt-4 p-3 bg-red-50 text-red-700 rounded-md text-sm">
+              <div className="mt-4 p-3 bg-destructive/10 text-destructive rounded-md text-sm">
                 {error}
               </div>
             )}
             
             {isLoading && (
               <div className="mt-4 flex justify-center">
-                <div className="w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+                <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
                 <span className="ml-2 text-gray-600">Processing images...</span>
               </div>
             )}

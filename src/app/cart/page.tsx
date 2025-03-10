@@ -213,15 +213,15 @@ export default function CartPage() {
           
           <CardContent>
             {errorMessage && (
-              <div className="bg-red-50 border border-red-200 rounded-lg p-3 flex items-center mb-4">
-                <AlertCircle className="text-red-600 mr-2 h-5 w-5 flex-shrink-0" />
-                <p className="text-sm text-red-800">{errorMessage}</p>
+              <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-3 flex items-center mb-4">
+                <AlertCircle className="text-destructive mr-2 h-5 w-5 flex-shrink-0" />
+                <p className="text-sm text-destructive">{errorMessage}</p>
               </div>
             )}
             
             {cartItems.length === 0 ? (
               <div className="text-center py-8">
-                <ShoppingCart className="mx-auto h-12 w-12 text-gray-400 mb-3" />
+                <ShoppingCart className="mx-auto h-12 w-12 text-muted-foreground mb-3" />
                 <h3 className="text-lg font-medium text-gray-900 mb-1">Your cart is empty</h3>
                 <p className="text-gray-500 mb-4">Looks like you haven't added any items yet</p>
                 <Button 
@@ -250,7 +250,7 @@ export default function CartPage() {
                       {item.brand && (
                         <p className="text-sm text-gray-600">{item.brand}</p>
                       )}
-                      <p className="text-blue-600 font-bold">
+                      <p className="text-primary font-bold">
                         {formatCurrency(item.price)}
                       </p>
                       {item.originalTerm && (
@@ -289,7 +289,7 @@ export default function CartPage() {
                       <Button 
                         variant="ghost" 
                         size="sm" 
-                        className="h-8 px-2 text-red-500 hover:text-red-700 hover:bg-red-50"
+                        className="h-8 px-2 text-destructive hover:text-destructive hover:bg-destructive/10"
                         onClick={() => removeItem(item.id)}
                       >
                         <Trash2 className="h-4 w-4 mr-1" />
@@ -399,7 +399,7 @@ export default function CartPage() {
             <AlertDialogCancel>Cancel</AlertDialogCancel>
             <AlertDialogAction 
               onClick={clearCart}
-              className="bg-red-500 hover:bg-red-600"
+              className="bg-destructive hover:bg-destructive/90 text-destructive-foreground"
             >
               Clear Cart
             </AlertDialogAction>

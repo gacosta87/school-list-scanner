@@ -61,7 +61,7 @@ export default function ScanPage() {
                   <Button 
                     variant="ghost" 
                     size="sm" 
-                    className="text-red-500 hover:text-red-700 hover:bg-red-50"
+                    className="text-destructive hover:text-destructive hover:bg-destructive/10"
                     onClick={clearScannedPages}
                   >
                     Clear All
@@ -76,7 +76,7 @@ export default function ScanPage() {
                         alt={`Page ${index + 1}`} 
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute top-0 right-0 bg-blue-600 text-white text-xs px-1.5 py-0.5 rounded-bl-md">
+                      <div className="absolute top-0 right-0 bg-primary text-primary-foreground text-xs px-1.5 py-0.5 rounded-bl-md">
                         {index + 1}
                       </div>
                     </div>
@@ -94,7 +94,7 @@ export default function ScanPage() {
                   
                   <Button 
                     onClick={handleProcessList}
-                    className="flex-1 flex items-center justify-center bg-green-600 hover:bg-green-700"
+                    className="flex-1 flex items-center justify-center bg-primary hover:bg-primary/90 text-primary-foreground"
                   >
                     <List size={18} className="mr-1" />
                     <span>Process List</span>
@@ -110,7 +110,7 @@ export default function ScanPage() {
               <div className="flex flex-col space-y-4">
                 <Button 
                   onClick={handleCameraClick}
-                  className="flex items-center justify-center bg-blue-600 text-white p-6 rounded-lg shadow-lg hover:bg-blue-700 transition w-full"
+                  className="flex items-center justify-center bg-primary text-primary-foreground p-6 rounded-lg shadow-lg hover:bg-primary/90 transition w-full"
                 >
                   <Camera size={24} className="mr-2" />
                   <span>Take Photos</span>
@@ -119,7 +119,7 @@ export default function ScanPage() {
                 <Button 
                   onClick={handleUploadClick}
                   variant="outline"
-                  className="flex items-center justify-center bg-white text-blue-600 p-6 rounded-lg shadow border border-blue-200 hover:bg-gray-50 transition w-full"
+                  className="flex items-center justify-center bg-background text-primary p-6 rounded-lg shadow border border-primary/20 hover:bg-accent transition w-full"
                 >
                   <Upload size={24} className="mr-2" />
                   <span>Upload from Gallery</span>
